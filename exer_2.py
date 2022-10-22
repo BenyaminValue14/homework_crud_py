@@ -36,7 +36,7 @@ def user():
         comprobador = comprobar(dni, dnis)
         if comprobador == True:
             print('Este dni ya esta registrado')
-            return
+            return 0
         elif comprobador == False:
             print('Ingrese su nombre')
             nombre = input()
@@ -61,6 +61,8 @@ def create():
     bucle = int(input())
     for i in range(bucle):
         new_user = user()
+        if new_user == 0:
+            continue
         users.append(new_user) 
 
 def update():
@@ -101,7 +103,7 @@ def delete():
             eliminado = users.pop(index)
             print('valor eliminado:')
             print(eliminado)
-            
+
 def read():
     print('--LISTAR--')
     print('total: ',len(users))
@@ -129,3 +131,27 @@ def promedioEdad():
     print("promedio de pacientes")
     print(promedios)
 
+print('''
+Que accion desea hacer
+[1] : Registrar nuevo paciente
+[2] : Modificar paciente con dni
+[3] : Eliminar paciente
+[4] : Buscar paciente
+[5] : Mostrar todos los pacientes
+[6] : Mostrar promedio de edad de los pacientes
+''')
+o = input()
+if o == '1':
+    create()
+elif o == '2':
+    update()
+elif o == '3':
+    delete()
+elif o == '4':
+    find()
+elif o == '5':
+    read()
+elif o == '6':
+    promedioEdad()
+else:
+    print('no es valida esa opcion, Adiós')

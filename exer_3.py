@@ -95,8 +95,27 @@ def update(list, keyBuscar):
     print(list)
 
 
-#register()
-#crud.read(productos)
-#crud.find(productos,'code')
-update(productos,'code')
-crud.delete(productos,'code')
+print('''
+Que accion desea hacer
+[1] : Registrar nuevo paciente
+[2] : Modificar paciente con dni
+[3] : Eliminar paciente
+[4] : Buscar paciente
+[5] : Listar todos los pacientes
+[6] : salir
+''')
+o = input()
+if o == '1':
+    register()
+elif o == '2':
+    update(productos,'code')
+elif o == '3':
+    crud.delete(productos,'code')
+elif o == '4':
+    crud.find(productos,'code')
+elif o == '5':
+    crud.read(productos)
+elif o == '6':
+    print('adios!')
+else:
+    print('no es valida esa opcion, Adiós')
